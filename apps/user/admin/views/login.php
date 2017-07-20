@@ -47,7 +47,7 @@
                 <label>密码</label>
                 <input type="password" name="userpass" />
             </div>
-            <?php 
+            <?php
             $user_setting = getSetting('user_setting',true);
             if($user_setting['enable_admin_captcha']):
             ?>

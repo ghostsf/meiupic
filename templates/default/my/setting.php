@@ -4,7 +4,7 @@
 
     <div class="content">
         <div id="avatar" class="avatar-wrap">
-            <div class="avatar" id="avatarPreview" style="background-image:url('<?=app('user')->getAvatar($_G['user'],'large')?>')"></div>
+            <div class="avatar" id="avatarPreview" style="background-image:url('<?php echo app('user')->getAvatar($_G['user'],'large')?>')"></div>
             <label class="change-btn" id="avatarPicker">
                 更换头像
             </label>
@@ -18,7 +18,7 @@
             <div class="line-wrap">             
                 <label class="label">昵称</label>
                 <div class="input-wrap">
-                    <input type="text" class="nomal-input" name="nickname" value="<?=$_G['user']['nickname']?>" autocomplete="off" data-target="form-basic">
+                    <input type="text" class="nomal-input" name="nickname" value="<?php echo $_G['user']['nickname']?>" autocomplete="off" data-target="form-basic">
                     <i></i>
                 </div>
             </div>
@@ -38,7 +38,7 @@
             <div class="line-wrap">
                 <label class="label">简介</label>
                 <div class="input-wrap">
-                    <input type="text" class="nomal-input" name="description" value="<?=$_G['user']['description']?>" autocomplete="off" data-target="form-basic">
+                    <input type="text" class="nomal-input" name="description" value="<?php echo $_G['user']['description']?>" autocomplete="off" data-target="form-basic">
                     <i></i>
                 </div>
             </div>
@@ -67,7 +67,7 @@
 var uploader = new plupload.Uploader({
     runtimes : 'html5,flash,silverlight,html4',
     browse_button : 'avatarPicker',
-    url : "<?=U('my','saveavatar')?>",
+    url : "<?php echo U('my','saveavatar')?>",
     flash_swf_url : '<?php echo S("base","plupload/Moxie.swf");?>',
     silverlight_xap_url : '<?php echo S("base","plupload/Moxie.xap");?>',
     resize : { width : 300, height : 300, quality : 90 },
@@ -100,39 +100,5 @@ var uploader = new plupload.Uploader({
 });
 
 uploader.init();
-/*
-var uploader = WebUploader.create({
-    auto: true,
-    swf:"<?=S('base','webuploader/Uploader.swf')?>",
-    server: "<?=U('my','saveavatar')?>",
-    pick: '#avatarPicker',
-    accept: {
-        title: 'Images',
-        extensions: 'gif,jpg,jpeg,png',
-        mimeTypes: 'image/*'
-    }
-});
-uploader.on( 'uploadProgress', function( file, percentage ) {
-    $('#avatarPicker label').html('上传：'+percentage+'%');
-});
-uploader.on( 'uploadSuccess', function( file ) {
-    $('#avatarPicker label').html('更换头像');
-    art.dialog.tips('上传成功！',1,true);
-    setTimeout(function(){
-        window.location.reload();
-    },1000);
-});
-uploader.on( 'uploadAccept', function( file, response ) {
-    if ( response.error ) {
-        console.log(response.error);
-        return false;
-    }else{
-        return true;
-    }
-});
-uploader.on( 'uploadError', function( file ) {
-   $('#avatarPicker label').html('更换头像');
-    art.dialog.tips('上传失败！',1,true);
-});*/
 </script>
 <?php $this->display('my/foot.php'); ?>

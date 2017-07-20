@@ -5,8 +5,9 @@
     <title><?php if(isset($site_title)): echo $site_title; else: ?><?php echo getSetting('site_title');?> - <?php echo getSetting('site_sub_title');?><?php endif; ?></title>
     <meta name="keywords" content="<?php if(isset($site_keywords)){ echo $site_keywords; } ?>" />
     <meta name="description" content="<?php if(isset($site_description)){ echo $site_description; } ?>" />
-    <script type="text/javascript" src="<?=S('base','js/jquery.min.js');?>"></script>
-    <link rel="stylesheet" href="<?=ST('css/main.css')?>" type="text/css" />
+    <script type="text/javascript" src="<?php echo S('base','js/jquery.min.js');?>"></script>
+    <link rel="stylesheet" href="<?php echo ST('css/main.css')?>" type="text/css" />
+    <link rel="stylesheet" href="<?php echo ST('css/user.css')?>" type="text/css" />
 </head>
 <body>
 <div class="site-header">

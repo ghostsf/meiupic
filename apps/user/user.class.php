@@ -41,6 +41,7 @@ Class UserClass{
         if($user_info['status']!=1){
             return array(false,'用户名已被停用！','username');
         }
+        echo md5($userpass.$user_info['salt']);
         if($user_info['userpass'] != md5($userpass.$user_info['salt'])){
             return array(false,'密码错误！','userpass');
         }
